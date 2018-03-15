@@ -1,22 +1,22 @@
 <?php
 // Obtiene el contenido del archivo header.php del tema actual
-get_header(); 
+get_header('busqueda'); 
 ?>
 
-Estoy usando el archivo index.php
+Estoy usando el archivo search.php
 
 <?php // The Loop (Wordpress) ?>
 <?php if ( have_posts() ) : ?>
+	<h3>Se encontraron estas coincidencias:</h3>
     <?php while ( have_posts() ) : the_post(); ?>
-    	<h1><?php echo the_title(); ?></h1>
-
-    	<?php echo the_content(); ?>
+    	<a href="<?php the_permalink(); ?>"><?php echo the_title(); ?></a>
     	<hr>
     <?php endwhile; ?>
 <?php else : ?>
-	<h3>No se encontraron resultados.</h3>
+	<h3>No se encontraron resultados en tu búsqueda.</h3>
 <?php endif; ?>
 
 <?php 
 // Obtiene el contenido del archivo header.php del tema actual
-get_footer(); ?>
+get_footer('busqueda'); ?>
+
