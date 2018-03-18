@@ -38,5 +38,24 @@ add_action('wp_enqueue_scripts', 'enqueue_scripts');
 
 
 
+function add_noscript_filter($tag, $handle, $src){
+    // as this filter will run for every enqueued script
+    // we need to check if the handle is equals the script
+    // we want to filter. If yes, than adds the noscript element
+    if ( 'script-handle' === $handle ){
+        $noscript = '<noscript>';
+        // you could get the inner content from other function
+        $noscript .= '<p>this site demands javascript</p>';
+        $noscript .= '</noscript>';
+        $tag = $tag . $noscript;
+    }
+        return $tag;
+}
+// adds the add_noscript_filter function to the script_loader_tag filters
+// it must use 3 as the last parameter to make $tag, $handle, $src available
+// to the filter function
+add_filter('script_loader_tag', 'add_noscript_filter', 10, 3);
+
+
 
 ?>
