@@ -57,20 +57,31 @@ function add_noscript_filter($tag, $handle, $src){
 add_filter('script_loader_tag', 'add_noscript_filter', 10, 3);
 
 
-
+/*
+ * Se registra una area de widgets llamada Widget Area 1, con id = widget-area-1 
+ * 
+*/
 if (function_exists('register_sidebar')) {
 	register_sidebar(array(
-		'name' => 'Widgetized Area',
-		'id'   => 'widgetized-area',
-		'description'   => 'This is a widgetized area.',
+		'name' => 'Widget Area 1',
+		'id' => 'widget-area-1',
+		'description' => 'Esta es el area de Widget #1',
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h4>',
-		'after_title'   => '</h4>'
+		'before_title'  => '<h5>',
+		'after_title'   => '</h5>'
 	));
 
+	register_sidebar(array(
+		'name' => 'Widget Area 2',
+		'id' => 'widget-area-2',
+		'description' => 'Esta es el area de Widget #2',
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h5>',
+		'after_title'   => '</h5>'
+	));
 }
-
 
 
 ?>

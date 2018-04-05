@@ -24,6 +24,10 @@
 						</nav>
 					</header>
 
+					<?php if ( is_active_sidebar( 'widget-area-2' ) ) : ?>
+						<?php dynamic_sidebar( 'widget-area-2' ); ?>
+					<?php endif; ?>
+
 				<!-- Menu -->
 					<nav id="menu">
 						<ul class="links">

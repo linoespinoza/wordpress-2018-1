@@ -51,17 +51,6 @@
 
 				<!-- Footer -->
 					<footer id="footer">
-						<div id="widgetized-area">
-							<?php if (function_exists('dynamic_sidebar') && dynamic_sidebar('widgetized-area')) : else : ?>
-
-							<div class="pre-widget">
-								<p><strong>Widgetized Area</strong></p>
-								<p>This panel is active and ready for you to add some widgets via the WP Admin</p>
-							</div>
-
-							<?php endif; ?>
-						</div>
-
 						<div class="inner">
 							<ul class="icons">
 								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
@@ -73,6 +62,8 @@
 							<ul class="copyright">
 								<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 							</ul>
+
+							<?php get_sidebar(); ?>
 						</div>
 					</footer>
 
